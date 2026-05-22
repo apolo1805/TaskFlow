@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import DashboardPage from "../pages/DashboardPage";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     const token = useAuthStore((state) => state.token);
@@ -17,7 +18,7 @@ export default function Router() {
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/" element={
                     <ProtectedRoute>
-                        <div>Dashboard coming soon</div>
+                        <DashboardPage />
                     </ProtectedRoute>
                 } />
             </Routes>
